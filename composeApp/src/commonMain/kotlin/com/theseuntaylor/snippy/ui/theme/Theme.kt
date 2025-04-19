@@ -1,6 +1,7 @@
 package com.theseuntaylor.snippy.ui.theme
 
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
@@ -15,17 +16,19 @@ fun SnippyTheme(
     androidStatusBarSideEffect: @Composable ((statusBarColor: Int, isDarkTheme: Boolean) -> Unit)? = null,
     useDarkTheme: Boolean? = null,
     content: @Composable () -> Unit
-){
+) {
 
     val shouldUseDarkTheme = useDarkTheme ?: shouldUseDarkTheme()
-    val colorScheme = if (shouldUseDarkTheme) mediumContrastDarkColorScheme else mediumContrastLightColorScheme
+    val colorScheme =
+        if (shouldUseDarkTheme) mediumContrastDarkColorScheme else mediumContrastLightColorScheme
 
     androidStatusBarSideEffect?.let {
         it(colorScheme.secondary.toArgb(), shouldUseDarkTheme)
     }
 
-    MaterialTheme (
+    MaterialTheme(
         colorScheme = colorScheme,
-        content = content
-    )
+    ) {
+        Surface { content() }
+    }
 }
