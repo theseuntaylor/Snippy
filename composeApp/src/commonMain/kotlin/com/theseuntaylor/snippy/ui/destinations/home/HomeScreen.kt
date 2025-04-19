@@ -12,10 +12,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -33,30 +35,32 @@ import snippy.composeapp.generated.resources.privacy_policy
 import snippy.composeapp.generated.resources.shorten
 import snippy.composeapp.generated.resources.shorten_your_links
 import snippy.composeapp.generated.resources.simplify_long_urls
-import snippy.composeapp.generated.resources.snippy_app_icon
 import snippy.composeapp.generated.resources.url_hint
 
 @Composable
-internal fun HomeScreen() {
+internal fun HomeScreen(
+    modifier: Modifier = Modifier,
+) {
+    var urlLink by remember { mutableStateOf("") }
     Column(
-        modifier = Modifier.padding(
+        modifier = modifier.padding(
             horizontal = 20.dp,
-            vertical = 40.dp
+            vertical = 40.dp,
         ).fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
     ) {
         Row(
             horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
                 painter = painterResource(Res.drawable.compose_multiplatform),
                 contentDescription = "App Icon",
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier.size(size = 24.dp),
             )
             Text(
-                text = stringResource(Res.string.app_name),
-                style = MaterialTheme.typography.titleMedium
+                text = stringResource(resource = Res.string.app_name),
+                style = MaterialTheme.typography.titleMedium,
             )
         }
 
@@ -64,65 +68,66 @@ internal fun HomeScreen() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = stringResource(Res.string.shorten_your_links),
+                text = stringResource(resource = Res.string.shorten_your_links),
                 style = MaterialTheme.typography.displaySmall,
                 fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
-            SnippyVerticalSpacer(38.dp)
+            SnippyVerticalSpacer(height = 38.dp)
             Text(
                 text = stringResource(Res.string.simplify_long_urls),
                 style = MaterialTheme.typography.titleLarge,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             Text(
-                text = stringResource(Res.string.features_only_available_with_an_account),
+                text = stringResource(resource = Res.string.features_only_available_with_an_account),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.secondary,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
-            SnippyVerticalSpacer(55.dp)
+            SnippyVerticalSpacer(height = 55.dp)
             OutlinedTextField(
-                "",
-                onValueChange = {},
+                value = urlLink,
+                onValueChange = { urlLink = it },
                 placeholder = {
                     Text(
-                        stringResource(Res.string.url_hint),
+                        text = stringResource(resource = Res.string.url_hint),
                         fontWeight = FontWeight.Bold
                     )
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
-            SnippyVerticalSpacer(14.dp)
+            SnippyVerticalSpacer(height = 14.dp)
             SnippyButton(
                 onClick = { /*TODO*/ },
                 modifier = Modifier.fillMaxWidth(),
-                textContent = stringResource(Res.string.shorten),
+                textContent = stringResource(resource = Res.string.shorten),
                 containerColor = MaterialTheme.colorScheme.primary,
-                textPadding = 12.dp
+                textPadding = 12.dp,
             )
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(20.dp)
+            horizontalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             SnippyButton(
                 onClick = { /*TODO*/ },
-                modifier = Modifier.weight(1f),
-                textContent = stringResource(Res.string.login),
-                containerColor = MaterialTheme.colorScheme.secondary
+                modifier = Modifier.weight(weight = 1f),
+                textContent = stringResource(resource = Res.string.login),
+                containerColor = MaterialTheme.colorScheme.secondary,
             )
             SnippyButton(
                 onClick = { /*TODO*/ },
-                modifier = Modifier.weight(1f),
-                textContent = stringResource(Res.string.create_account),
-                containerColor = MaterialTheme.colorScheme.primary
+                modifier = Modifier.weight(weight = 1f),
+                textContent = stringResource(resource = Res.string.create_account),
+                containerColor = MaterialTheme.colorScheme.primary,
             )
         }
         Text(
-            stringResource(Res.string.privacy_policy),
+            text = stringResource(resource = Res.string.privacy_policy),
             style = MaterialTheme.typography.bodySmall,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth(),
         )
     }
 }

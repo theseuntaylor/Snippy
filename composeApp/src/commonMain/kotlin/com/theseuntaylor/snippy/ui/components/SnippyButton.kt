@@ -18,7 +18,7 @@ fun SnippyButton(
     textContent: String,
     modifier: Modifier = Modifier,
     containerColor: Color = MaterialTheme.colorScheme.secondary,
-    textPadding: Dp = 6.dp
+    textPadding: Dp = 6.dp,
 ) {
     Button(
         onClick = onClick,
@@ -32,7 +32,7 @@ fun SnippyButton(
             )
         },
         colors = ButtonDefaults.buttonColors(
-            containerColor = containerColor
+            containerColor = containerColor,
         )
     )
 }

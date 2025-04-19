@@ -4,6 +4,4 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 
 @Composable
-actual fun shouldUseDarkTheme(): Boolean {
-    return isSystemInDarkTheme()
-}
+actual fun shouldUseDarkTheme(): Boolean = isSystemInDarkTheme()

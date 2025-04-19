@@ -15,7 +15,7 @@ private val mediumContrastDarkColorScheme = darkColorScheme()
 fun SnippyTheme(
     androidStatusBarSideEffect: @Composable ((statusBarColor: Int, isDarkTheme: Boolean) -> Unit)? = null,
     useDarkTheme: Boolean? = null,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
 
     val shouldUseDarkTheme = useDarkTheme ?: shouldUseDarkTheme()

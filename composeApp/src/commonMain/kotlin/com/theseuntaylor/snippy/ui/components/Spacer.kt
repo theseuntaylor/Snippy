@@ -9,14 +9,14 @@ import androidx.compose.ui.unit.Dp
 
 @Composable
 fun SnippyVerticalSpacer(
-    height: Dp
+    height: Dp,
 ) {
-    Spacer(modifier = Modifier.height(height))
+    Spacer(modifier = Modifier.height(height = height))
 }
 
 @Composable
 fun SnippyHorizontalSpacer(
-    width: Dp
+    width: Dp,
 ) {
-    Spacer(modifier = Modifier.width(width))
+    Spacer(modifier = Modifier.width(width = width))
 }
