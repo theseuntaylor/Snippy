@@ -41,7 +41,7 @@ import snippy.composeapp.generated.resources.url_hint
 internal fun HomeScreen(
     modifier: Modifier = Modifier,
 ) {
-    var urlLink by remember { mutableStateOf("") }
+    var urlInput by remember { mutableStateOf("") }
     Column(
         modifier = modifier.padding(
             horizontal = 20.dp,
@@ -87,8 +87,8 @@ internal fun HomeScreen(
             )
             SnippyVerticalSpacer(height = 55.dp)
             OutlinedTextField(
-                value = urlLink,
-                onValueChange = { urlLink = it },
+                value = urlInput,
+                onValueChange = { urlInput = it },
                 placeholder = {
                     Text(
                         text = stringResource(resource = Res.string.url_hint),

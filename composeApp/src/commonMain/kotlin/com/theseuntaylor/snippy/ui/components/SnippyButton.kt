@@ -26,9 +26,8 @@ fun SnippyButton(
         shape = RoundedCornerShape(6.dp),
         content = {
             Text(
-                textContent,
+                text = textContent,
                 modifier = Modifier.padding(vertical = textPadding),
-                // color = Color.White
             )
         },
         colors = ButtonDefaults.buttonColors(
