@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Snippy</string>
+    <string name="shorten">Shorten</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="url_hint">https://example.com</string>
+    <string name="privacy_policy">\u00a9 2025 All Rights Reserved.</string>
+    <string name="shorten_your_links">Shorten your links\nwith ease</string>
+    <string name="simplify_long_urls">Simplify long URLs, track engagement on link visits, customize short links, password protect your links and more.</string>
+    <string name="features_only_available_with_an_account">* some features only available with an account</string>
+</resources>
