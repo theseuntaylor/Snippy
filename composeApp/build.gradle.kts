@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidxRoom)
 }
 
 kotlin {
@@ -36,7 +38,10 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.kotlinx.coroutines.android)
         }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -46,12 +51,26 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.ktor.client.core)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.multiplatform.settings)
+            implementation(libs.kermit)
+            implementation(libs.androidx.room.runtime)
         }
+
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
+
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
     }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 android {
@@ -85,6 +104,7 @@ dependencies {
     implementation(libs.androidx.foundation.layout.android)
     implementation(libs.androidx.ui.android)
     debugImplementation(compose.uiTooling)
+    ksp(libs.androidx.room.compiler)
 }
 
 compose.desktop {
