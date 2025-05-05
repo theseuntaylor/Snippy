@@ -56,6 +56,7 @@ kotlin {
             implementation(libs.multiplatform.settings)
             implementation(libs.kermit)
             implementation(libs.androidx.room.runtime)
+            implementation(libs.androidx.navigation.compose)
         }
 
         iosMain.dependencies {
