@@ -11,6 +11,7 @@ import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,7 +43,16 @@ fun SignupScreen(modifier: Modifier = Modifier) {
     val passwordState = rememberTextFieldState()
     val confirmPasswordState = rememberTextFieldState()
     val passwordError by remember { mutableStateOf(InputFieldError.Initial) }
-    val isButtonEnabled by remember { mutableStateOf(false) }
+
+    val isButtonEnabled by remember {
+        derivedStateOf {
+            firstNameInput.isNotBlank()
+                    && lastNameInput.isNotBlank()
+                    && emailInput.isNotBlank()
+                    && passwordState.text.length >= 8
+                    && confirmPasswordState.text.length >= 8
+        }
+    }
 
     Column(
         modifier = Modifier.padding(
@@ -68,7 +78,7 @@ fun SignupScreen(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ColumnScope.SignupScreenContent(
+private fun ColumnScope.SignupScreenContent(
     firstNameInput: String,
     lastNameInput: String,
     emailInput: String,
@@ -131,6 +141,7 @@ fun ColumnScope.SignupScreenContent(
         modifier = Modifier.padding(vertical = 20.dp),
         inputField = { PasswordTextInputField(passwordState = passwordState) },
     )
+
     TextInput(
         sectionTitle = stringResource(resource = Res.string.password),
         showErrorMessage = passwordError.shouldShowError,
