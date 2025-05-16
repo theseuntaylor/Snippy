@@ -55,7 +55,7 @@ fun SignupScreen(modifier: Modifier = Modifier) {
     }
 
     Column(
-        modifier = Modifier.padding(
+        modifier = modifier.padding(
             horizontal = 20.dp,
             vertical = 40.dp,
         ).fillMaxSize(),
