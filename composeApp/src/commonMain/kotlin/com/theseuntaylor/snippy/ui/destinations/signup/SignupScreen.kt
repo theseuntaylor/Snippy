@@ -20,12 +20,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.theseuntaylor.snippy.ui.components.SnippyButton
+import com.theseuntaylor.snippy.ui.components.SnippyFillSpacer
 import com.theseuntaylor.snippy.ui.destinations.shared.PasswordTextInputField
 import com.theseuntaylor.snippy.ui.destinations.shared.TextInput
 import com.theseuntaylor.snippy.ui.model.InputFieldError
 import com.theseuntaylor.snippy.ui.destinations.shared.TextInputField
 import org.jetbrains.compose.resources.stringResource
 import snippy.composeapp.generated.resources.Res
+import snippy.composeapp.generated.resources.confirm_password
 import snippy.composeapp.generated.resources.create_account
 import snippy.composeapp.generated.resources.email_address
 import snippy.composeapp.generated.resources.first_name
@@ -134,21 +136,22 @@ private fun ColumnScope.SignupScreenContent(
             )
         },
     )
-    TextInput(
-        sectionTitle = stringResource(resource = Res.string.password),
-        showErrorMessage = passwordError.shouldShowError,
-        errorMessage = "Enter at least 8 characters",
-        modifier = Modifier.padding(vertical = 20.dp),
-        inputField = { PasswordTextInputField(passwordState = passwordState) },
-    )
 
     TextInput(
         sectionTitle = stringResource(resource = Res.string.password),
         showErrorMessage = passwordError.shouldShowError,
         errorMessage = "Enter at least 8 characters",
-        modifier = Modifier.padding(vertical = 20.dp),
+        inputField = { PasswordTextInputField(passwordState = passwordState) },
+    )
+
+    TextInput(
+        sectionTitle = stringResource(resource = Res.string.confirm_password),
+        showErrorMessage = passwordError.shouldShowError,
+        errorMessage = "Enter at least 8 characters",
         inputField = { PasswordTextInputField(passwordState = confirmPasswordState) },
     )
+
+    SnippyFillSpacer()
 
     SnippyButton(
         onClick = { /*TODO*/ },
