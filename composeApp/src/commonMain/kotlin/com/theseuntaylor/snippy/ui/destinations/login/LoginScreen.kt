@@ -44,7 +44,7 @@ internal fun LoginScreen(modifier: Modifier = Modifier) {
     val passwordState = rememberTextFieldState()
     var passwordError by remember { mutableStateOf(InputFieldError.Initial) }
 
-    val enable by remember {
+    val isSubmitEnabled by remember {
         derivedStateOf {
             emailInput.isNotBlank() && passwordState.text.length >= 8
         }
@@ -76,7 +76,7 @@ internal fun LoginScreen(modifier: Modifier = Modifier) {
             emailInput = emailInput,
             passwordState = passwordState,
             passwordError = passwordError,
-            enable = enable,
+            isSubmitEnabled = isSubmitEnabled,
             onEmailChange = { emailInput = it },
         )
 
@@ -88,7 +88,7 @@ private fun ColumnScope.LoginContent(
     emailInput: String,
     passwordState: TextFieldState,
     passwordError: InputFieldError,
-    enable: Boolean,
+    isSubmitEnabled: Boolean,
     onEmailChange: (String) -> Unit,
 ) {
     SnippyLogo()
@@ -127,7 +127,7 @@ private fun ColumnScope.LoginContent(
     SnippyButton(
         onClick = { /*TODO*/ },
         modifier = Modifier.fillMaxWidth(),
-        enabled = enable,
+        enabled = isSubmitEnabled,
         textContent = stringResource(resource = Res.string.login),
         containerColor = MaterialTheme.colorScheme.secondary,
     )
