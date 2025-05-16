@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 fun SnippyButton(
     onClick: () -> Unit,
     textContent: String,
+    enabled: Boolean = true,
     modifier: Modifier = Modifier,
     containerColor: Color = MaterialTheme.colorScheme.secondary,
     textPadding: Dp = 6.dp,
@@ -24,6 +25,7 @@ fun SnippyButton(
         onClick = onClick,
         modifier = modifier,
         shape = RoundedCornerShape(6.dp),
+        enabled = enabled,
         content = {
             Text(
                 text = textContent,
