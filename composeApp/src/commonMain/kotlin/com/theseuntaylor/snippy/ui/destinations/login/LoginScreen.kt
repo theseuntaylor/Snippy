@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
@@ -17,11 +18,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.theseuntaylor.snippy.ui.components.SnippyButton
 import com.theseuntaylor.snippy.ui.components.SnippyEndTextButton
 import com.theseuntaylor.snippy.ui.components.SnippyFillSpacer
-import com.theseuntaylor.snippy.ui.components.SnippyLogo
 import com.theseuntaylor.snippy.ui.components.SnippyVerticalSpacer
 import com.theseuntaylor.snippy.ui.destinations.shared.PasswordTextInputField
 import com.theseuntaylor.snippy.ui.destinations.shared.TextInput
@@ -91,7 +92,11 @@ private fun ColumnScope.LoginContent(
     isSubmitEnabled: Boolean,
     onEmailChange: (String) -> Unit,
 ) {
-    SnippyLogo()
+    Text(
+        stringResource(Res.string.login),
+        style = MaterialTheme.typography.titleLarge,
+        fontWeight = FontWeight.Bold,
+    )
 
     SnippyVerticalSpacer(height = 38.dp)
 

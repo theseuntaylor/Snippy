@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.androidxRoom)
+    alias(libs.plugins.serialization)
 }
 
 kotlin {

@@ -40,6 +40,8 @@ import snippy.composeapp.generated.resources.url_hint
 @Composable
 internal fun HomeScreen(
     modifier: Modifier = Modifier,
+    onClickLoginButton: () -> Unit,
+    onClickCreateAccountButton: () -> Unit,
 ) {
     var urlInput by remember { mutableStateOf("") }
     Column(
@@ -111,13 +113,13 @@ internal fun HomeScreen(
             horizontalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             SnippyButton(
-                onClick = { /*TODO*/ },
+                onClick = onClickLoginButton,
                 modifier = Modifier.weight(weight = 1f),
                 textContent = stringResource(resource = Res.string.login),
                 containerColor = MaterialTheme.colorScheme.secondary,
             )
             SnippyButton(
-                onClick = { /*TODO*/ },
+                onClick = onClickCreateAccountButton,
                 modifier = Modifier.weight(weight = 1f),
                 textContent = stringResource(resource = Res.string.create_account),
                 containerColor = MaterialTheme.colorScheme.primary,
