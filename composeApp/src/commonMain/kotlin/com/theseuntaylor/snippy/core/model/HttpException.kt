@@ -1,4 +1,4 @@
-package com.theseuntaylor.snippy.data.source.remote.utils
+package com.theseuntaylor.snippy.core.model
 
 import com.theseuntaylor.snippy.data.source.remote.dto.shared.ErrorBody
 import io.ktor.http.HttpStatusCode

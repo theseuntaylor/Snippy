@@ -1,7 +1,7 @@
 package com.theseuntaylor.snippy.core.utils
 
 import com.theseuntaylor.snippy.core.model.AppError
-import com.theseuntaylor.snippy.data.source.remote.utils.HttpException
+import com.theseuntaylor.snippy.core.model.HttpException
 
 fun Exception.toSnippyException(): AppError =
     AppError.SnippyException(

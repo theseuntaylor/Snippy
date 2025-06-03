@@ -8,8 +8,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.androidxRoom)
-    alias(libs.plugins.serialization)
 }
 
 kotlin {
@@ -52,10 +52,11 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.ktor.client.core)
+            implementation(libs.bundles.ktor.common)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.multiplatform.settings)
             implementation(libs.kermit)
+            implementation(libs.kotlinx.serialization)
             implementation(libs.androidx.room.runtime)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.kotlininject.runtime)
