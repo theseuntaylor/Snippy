@@ -24,6 +24,7 @@ kermit = "2.0.5"
 androidx-room = "2.7.1"
 ksp = "2.1.20-1.0.31"
 androidx-navigation = "2.7.0-alpha07"
+kotlin-inject = "0.7.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -59,6 +60,11 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 
 # Developer Utils
 kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
+
+# Kotlin Inject
+kotlininject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlin-inject" }
+kotlininject-runtime = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlin-inject" }
+
 
 [plugins]
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

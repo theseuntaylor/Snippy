@@ -57,6 +57,7 @@ kotlin {
             implementation(libs.kermit)
             implementation(libs.androidx.room.runtime)
             implementation(libs.androidx.navigation.compose)
+            implementation(libs.kotlininject.runtime)
         }
 
         iosMain.dependencies {
@@ -67,7 +68,12 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
+
     }
+}
+
+ksp {
+    arg("me.tatarka.inject.generateCompanionExtensions", "true")
 }
 
 room {
@@ -106,6 +112,10 @@ dependencies {
     implementation(libs.androidx.ui.android)
     debugImplementation(compose.uiTooling)
     ksp(libs.androidx.room.compiler)
+    add("kspAndroid", libs.kotlininject.compiler)
+    add("kspIosX64", libs.kotlininject.compiler)
+    add("kspIosArm64", libs.kotlininject.compiler)
+    add("kspIosSimulatorArm64", libs.kotlininject.compiler)
 }
 
 compose.desktop {
