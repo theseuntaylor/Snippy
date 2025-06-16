@@ -9,8 +9,10 @@ import io.ktor.client.call.body
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.HttpStatusCode
+import me.tatarka.inject.annotations.Inject
 
-class AuthApiService(
+@Inject
+class AuthApi(
     private val client: HttpClient,
 ) {
     suspend fun createUserAccount(

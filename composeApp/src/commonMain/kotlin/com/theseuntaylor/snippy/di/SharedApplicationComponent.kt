@@ -1,6 +1,9 @@
 package com.theseuntaylor.snippy.di
 
 import com.theseuntaylor.snippy.core.utils.ApiServiceConstants
+import com.theseuntaylor.snippy.data.repository.auth.AuthRepository
+import com.theseuntaylor.snippy.data.source.remote.api.auth.AuthApi
+import com.theseuntaylor.snippy.ui.viewmodels.CreateAccountViewmodel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -16,6 +19,12 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 
 interface SharedApplicationComponent {
+
+    val createAccountViewmodel: CreateAccountViewmodel
+
+    val repository: AuthRepository
+
+    val authApi: AuthApi
 
     val json: Json
         @Provides get() = Json {
