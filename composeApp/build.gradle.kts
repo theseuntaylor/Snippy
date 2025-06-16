@@ -44,6 +44,8 @@ kotlin {
         }
 
         commonMain.dependencies {
+            api(libs.bundles.kotlinInject)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -67,6 +69,7 @@ kotlin {
         }
 
         desktopMain.dependencies {
+            implementation(libs.ktor.client.java)
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
@@ -76,6 +79,8 @@ kotlin {
 
 ksp {
     arg("me.tatarka.inject.generateCompanionExtensions", "true")
+    arg("circuit.codegen.mode", "kotlin_inject_anvil")
+    arg("kotlin-inject-anvil-contributing-annotations", "com.slack.circuit.codegen.annotations.CircuitInject")
 }
 
 room {
@@ -113,7 +118,10 @@ dependencies {
     implementation(libs.androidx.foundation.layout.android)
     implementation(libs.androidx.ui.android)
     debugImplementation(compose.uiTooling)
+
     ksp(libs.androidx.room.compiler)
+    ksp(libs.kotlinInject.anvil.compiler)
+
     add("kspAndroid", libs.kotlininject.compiler)
     add("kspIosX64", libs.kotlininject.compiler)
     add("kspIosArm64", libs.kotlininject.compiler)
