@@ -10,8 +10,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val applicationComponent = (applicationContext as SnippyApplication).component
+
         setContent {
-            App()
+            applicationComponent.snippyApp
         }
     }
 }

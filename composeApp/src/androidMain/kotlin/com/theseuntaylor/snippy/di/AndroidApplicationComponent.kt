@@ -8,8 +8,6 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 
 @MergeComponent(AppScope::class)
 @SingleIn(AppScope::class)
-abstract class AndroidApplicationComponent(val application: Application) : SharedApplicationComponent {
-
+abstract class AndroidApplicationComponent: SharedApplicationComponent {
     override fun getHttpClientEngine() = OkHttp.create()
-
 }

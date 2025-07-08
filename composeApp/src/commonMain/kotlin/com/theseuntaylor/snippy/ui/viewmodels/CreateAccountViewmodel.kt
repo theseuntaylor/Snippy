@@ -11,8 +11,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import me.tatarka.inject.annotations.Inject
+import software.amazon.lastmile.kotlin.inject.anvil.AppScope
+import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 import kotlin.coroutines.cancellation.CancellationException
 
+@Inject
+@SingleIn(AppScope::class)
 class CreateAccountViewmodel(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
