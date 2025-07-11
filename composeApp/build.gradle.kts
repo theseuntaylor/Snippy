@@ -61,7 +61,6 @@ kotlin {
             implementation(libs.kotlinx.serialization)
             implementation(libs.androidx.room.runtime)
             implementation(libs.androidx.navigation.compose)
-            implementation(libs.kotlininject.runtime)
         }
 
         iosMain.dependencies {
@@ -75,12 +74,6 @@ kotlin {
         }
 
     }
-}
-
-ksp {
-    arg("me.tatarka.inject.generateCompanionExtensions", "true")
-    arg("circuit.codegen.mode", "kotlin_inject_anvil")
-    arg("kotlin-inject-anvil-contributing-annotations", "com.slack.circuit.codegen.annotations.CircuitInject")
 }
 
 room {
@@ -121,11 +114,13 @@ dependencies {
 
     ksp(libs.androidx.room.compiler)
     ksp(libs.kotlinInject.anvil.compiler)
+    ksp(libs.kotlinInject.compiler)
 
-    add("kspAndroid", libs.kotlininject.compiler)
-    add("kspIosX64", libs.kotlininject.compiler)
-    add("kspIosArm64", libs.kotlininject.compiler)
-    add("kspIosSimulatorArm64", libs.kotlininject.compiler)
+    add("kspCommonMainMetadata", libs.kotlinInject.anvil.compiler)
+    add("kspAndroid", libs.kotlinInject.compiler)
+    add("kspIosX64", libs.kotlinInject.compiler)
+    add("kspIosArm64", libs.kotlinInject.compiler)
+    add("kspIosSimulatorArm64", libs.kotlinInject.compiler)
 }
 
 compose.desktop {
