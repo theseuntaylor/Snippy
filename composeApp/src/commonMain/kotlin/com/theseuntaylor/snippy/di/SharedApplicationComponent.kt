@@ -25,14 +25,7 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 @ContributesTo(AppScope::class)
 @SingleIn(AppScope::class)
 interface SharedApplicationComponent {
-
-    val snippyApp: SnippyApp
-
     val createAccountViewmodel: CreateAccountViewmodel
-
-    val repository: AuthRepository
-
-    val authApi: AuthApi
 
     val json: Json
         @Provides get() = Json {
@@ -40,10 +33,10 @@ interface SharedApplicationComponent {
         }
 
     @Provides
-    fun getHttpClientEngine(): HttpClientEngine
+    fun httpClientEngine(): HttpClientEngine
 
     @Provides
-    fun httpClient(): HttpClient = createHttpClient(getHttpClientEngine(), json)
+    fun httpClient(): HttpClient = createHttpClient(httpClientEngine(), json)
 }
 
 fun createHttpClient(httpClientEngine: HttpClientEngine, json: Json) = HttpClient(httpClientEngine) {

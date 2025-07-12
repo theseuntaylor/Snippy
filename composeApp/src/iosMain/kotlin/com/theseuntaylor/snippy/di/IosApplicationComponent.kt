@@ -8,8 +8,7 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 
 @MergeComponent(AppScope::class)
 @SingleIn(AppScope::class)
-abstract class iosApplicationComponent: SharedApplicationComponent{
+abstract class IosApplicationComponent: SharedApplicationComponent{
 
-    override fun getHttpClientEngine(): HttpClientEngine = Darwin.create()
-
+    override fun httpClientEngine(): HttpClientEngine = Darwin.create()
 }

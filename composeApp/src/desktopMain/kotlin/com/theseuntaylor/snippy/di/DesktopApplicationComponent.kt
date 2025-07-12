@@ -1,6 +1,5 @@
 package com.theseuntaylor.snippy.di
 
-import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.java.Java
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.MergeComponent
@@ -10,7 +9,5 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 @SingleIn(AppScope::class)
 abstract class DesktopApplicationComponent: SharedApplicationComponent {
 
-    override fun getHttpClientEngine() = Java.create(
-
-    )
+    override fun httpClientEngine() = Java.create()
 }

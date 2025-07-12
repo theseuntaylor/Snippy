@@ -17,8 +17,6 @@ import com.theseuntaylor.snippy.ui.navigation.Login
 import com.theseuntaylor.snippy.ui.navigation.SignUp
 import me.tatarka.inject.annotations.Inject
 
-typealias SnippyApp = @Composable () -> Unit
-
 @Inject
 @Composable
 fun SnippyApp(
