@@ -15,13 +15,15 @@ import com.theseuntaylor.snippy.ui.destinations.signup.SignupScreen
 import com.theseuntaylor.snippy.ui.navigation.Home
 import com.theseuntaylor.snippy.ui.navigation.Login
 import com.theseuntaylor.snippy.ui.navigation.SignUp
+import com.theseuntaylor.snippy.ui.viewmodels.AuthViewmodel
 import me.tatarka.inject.annotations.Inject
 
 @Inject
 @Composable
 fun SnippyApp(
     navController: NavHostController = rememberNavController(),
-){
+    authViewmodel: AuthViewmodel,
+) {
     Scaffold { innerPadding ->
         NavHost(
             navController = navController,
@@ -39,7 +41,12 @@ fun SnippyApp(
 
             composable<SignUp> { SignupScreen() }
 
-            composable<Login> { LoginScreen()  }
+            composable<Login> {
+                LoginScreen(
+                    authViewmodel = authViewmodel,
+                    onLoginSuccess = { navController.navigate(Home) },
+                )
+            }
         }
     }
 

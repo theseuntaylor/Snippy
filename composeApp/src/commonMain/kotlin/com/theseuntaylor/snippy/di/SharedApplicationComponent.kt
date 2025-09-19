@@ -1,10 +1,7 @@
 package com.theseuntaylor.snippy.di
 
-import com.theseuntaylor.snippy.SnippyApp
 import com.theseuntaylor.snippy.core.utils.ApiServiceConstants
-import com.theseuntaylor.snippy.data.repository.auth.AuthRepository
-import com.theseuntaylor.snippy.data.source.remote.api.auth.AuthApi
-import com.theseuntaylor.snippy.ui.viewmodels.CreateAccountViewmodel
+import com.theseuntaylor.snippy.ui.viewmodels.AuthViewmodel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -25,7 +22,7 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 @ContributesTo(AppScope::class)
 @SingleIn(AppScope::class)
 interface SharedApplicationComponent {
-    val createAccountViewmodel: CreateAccountViewmodel
+    val authViewmodel: AuthViewmodel
 
     val json: Json
         @Provides get() = Json {

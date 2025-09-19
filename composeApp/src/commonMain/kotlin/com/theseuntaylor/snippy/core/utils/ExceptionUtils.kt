@@ -17,3 +17,9 @@ fun Throwable.toAppError(): AppError =
 
         else -> this.toSnippyException()
     }
+
+fun AppError.toErrorMessage(): String = when(this) {
+        is AppError.NetworkError ->  "${this.httpException.httpStatusCode}: ${this.httpException.message}"
+
+        is AppError.SnippyException -> this.message
+    }

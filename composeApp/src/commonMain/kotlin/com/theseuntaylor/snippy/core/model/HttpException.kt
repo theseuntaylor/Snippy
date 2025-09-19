@@ -6,4 +6,5 @@ import io.ktor.http.HttpStatusCode
 data class HttpException(
     val httpStatusCode: HttpStatusCode,
     val error: ErrorBody,
-) : Throwable()
+    override val message: String?,
+) : Throwable(message = message)

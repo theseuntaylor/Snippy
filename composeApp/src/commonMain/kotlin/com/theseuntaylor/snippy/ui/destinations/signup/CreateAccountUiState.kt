@@ -6,5 +6,6 @@ sealed interface CreateAccountUiState {
     data class Success(val firstName: String) : CreateAccountUiState
     data class Error(val appError: AppError) : CreateAccountUiState
     data object Loading : CreateAccountUiState
+    data object Initial : CreateAccountUiState
 
 }

@@ -11,8 +11,8 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "Snippy",
     ) {
-        SnippyTheme {
-            SnippyApp()
-        }
+//        SnippyTheme {
+//            SnippyApp(authViewmodel = applicationComponent.)
+//        }
     }
 }
