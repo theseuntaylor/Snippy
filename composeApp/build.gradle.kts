@@ -31,7 +31,12 @@ kotlin {
         }
     }
     
-    jvm("desktop")
+    jvm("desktop"){
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
 
     sourceSets {
         val desktopMain by getting
@@ -49,6 +54,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(libs.material.icon.core)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -121,6 +127,7 @@ dependencies {
     add("kspIosX64", libs.kotlinInject.compiler)
     add("kspIosArm64", libs.kotlinInject.compiler)
     add("kspIosSimulatorArm64", libs.kotlinInject.compiler)
+    add("kspDesktop", libs.kotlinInject.compiler)
 }
 
 compose.desktop {

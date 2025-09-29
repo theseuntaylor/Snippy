@@ -11,4 +11,6 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 abstract class IosApplicationComponent: SharedApplicationComponent{
 
     override fun httpClientEngine(): HttpClientEngine = Darwin.create()
+
+    companion object
 }

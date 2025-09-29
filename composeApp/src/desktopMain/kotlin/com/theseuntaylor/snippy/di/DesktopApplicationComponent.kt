@@ -10,4 +10,6 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 abstract class DesktopApplicationComponent: SharedApplicationComponent {
 
     override fun httpClientEngine() = Java.create()
+
+    companion object
 }
